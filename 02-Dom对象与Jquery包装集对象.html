@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Dom对象 与 jQuery包装集对象</title>
+	</head>
+	<body>
+		<div id="mydiv">文本</div>
+	</body>
+	
+	<!-- 
+		Dom对象
+			通过js方式获取的元素对象(document)
+		jQuery对象
+			通过jQuery方法获取的元素对象, 返回的是jquery包装集
+	 -->
+	 
+	 <!-- 出现 "$ is not defined"报错 证明没有应用jQuery -->
+	 <!-- 引入jQuery的核心js文件 -->
+	 <script src="js/jquery-3.6.0.js" type="text/javascript" charset="UTF-8"></script>
+	 
+	 
+	 <script type="text/javascript">
+		// Dom对象
+		var divDom = document.getElementById("mydiv");
+		console.log(divDom);
+		var divsDom = document.getElementsByTagName("div");
+		console.log(divsDom);
+		//js获取不存在的元素
+		var spanDom = document.getElementsByTagName("span")
+		console.log(spanDom);
+		var spanDom2 = document.getElementById("myspan")
+		console.log(spanDom2);
+		
+		console.log("------------------------------");
+		
+		// jQuery对象
+		//通过id选择器获取元素对象 $("#id属性值")
+		var divJQuery = $("#mydiv");
+		console.log(divJQuery);
+		var spanJQuery = $("#myspan");
+		console.log(spanJQuery);
+		
+		console.log("------------------------------");
+		
+		// Dom对象 转 jQuery对象
+		//Dom对象转为jQuery对象, 只需要利用$()方法进行包装即可
+		var divDomToJQuery = $(divDom);
+		console.log(divDomToJQuery);
+		
+		// jQuery 转 Dom对象
+		//获取包装集对象中指定下标的元素, 将jQuery对象转换成dom对象
+		var divJQueryToDom = divJQuery[0];
+		console.log(divJQueryToDom);
+		
+	 </script>
+	
+</html>
