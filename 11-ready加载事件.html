@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>ready加载事件</title>
+		<script src="js/jquery-3.6.0.js" type="text/javascript" charset="UTF-8"></script>
+		<script type="text/javascript">
+			console.log($("#p1"));   //这个时候是拿不到的, 因为代码的执行顺序, 页面结构还没有加载完毕
+			
+			$(document).ready(function() {
+				console.log($("#p1"));
+			});
+			
+			$(function() {
+				console.log("ready加载事件...");
+			});
+		</script>
+	</head>
+	<body>
+		<p id="p1">文本</p>
+	</body>
+	
+	<!-- 
+		ready加载事件
+			预加载事件
+			当页面的dom结构加载完毕后执行
+			类似与js中load事件
+			ready时间可以写多个
+			语法:
+				$(document).ready(function(){
+					
+				});
+			简写:
+				$(function(){
+					
+				});
+	 -->
+	
+</html>
